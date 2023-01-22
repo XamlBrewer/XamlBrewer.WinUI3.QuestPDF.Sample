@@ -1,0 +1,23 @@
+﻿<Page x:Class="XamlBrewer.WinUI3.QuestPDF.Sample.Views.AboutPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:XamlBrewer.WinUI3.QuestPDF.Sample.Views"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Background="Transparent">
+
+    <Grid Margin="40 40 20 80"
+          ColumnSpacing="0"
+          RowSpacing="0">
+        <TextBlock FontSize="20">
+            <Run Text="Sample demonstrating PDF generation with " /><Hyperlink NavigateUri="https://www.questpdf.com/">QuestPDF</Hyperlink><Run Text=" in a WinUI 3 Desktop application:" />
+            <LineBreak />
+            <Run>* Hello World</Run><LineBreak />
+            <Run>* Invoice</Run><LineBreak />
+            <Run>* Diagrams</Run><LineBreak />
+            <Run>* ... </Run><LineBreak />
+            <LineBreak /><LineBreak />
+        </TextBlock>
+    </Grid>
+</Page>

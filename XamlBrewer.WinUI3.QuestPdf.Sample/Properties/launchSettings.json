@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "XamlBrewer.WinUI3.QuestPDF.Sample (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "XamlBrewer.WinUI3.QuestPDF.Sample (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
