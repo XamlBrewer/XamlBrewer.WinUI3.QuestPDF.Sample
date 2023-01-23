@@ -1,3 +1,4 @@
+using Microcharts;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using QuestPDF.ExampleInvoice;
@@ -5,6 +6,7 @@ using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using QuestPDF.Previewer;
+using SkiaSharp;
 using System.Diagnostics;
 
 namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
@@ -90,5 +92,95 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
 
             process.Start();
         }
+
+        // Source: https://github.com/QuestPDF/QuestPDF/blob/main/Source/QuestPDF.Examples/ChartExamples.cs
+        private void ChartButton_Click(object sender, RoutedEventArgs e)
+        {
+            var entries = new[]
+            {
+                new ChartEntry(212)
+                {
+                    Label = "WinUI",
+                    ValueLabel = "112",
+                    Color = SKColor.Parse("#2c3e50")
+                },
+                new ChartEntry(248)
+                {
+                    Label = "Android",
+                    ValueLabel = "648",
+                    Color = SKColor.Parse("#77d065")
+                },
+                new ChartEntry(128)
+                {
+                    Label = "iOS",
+                    ValueLabel = "428",
+                    Color = SKColor.Parse("#b455b6")
+                },
+                new ChartEntry(514)
+                {
+                    Label = "Forms",
+                    ValueLabel = "214",
+                    Color = SKColor.Parse("#3498db")
+                }
+            };
+
+            var filePath = "C:\\Temp\\chart.pdf";
+
+            var document = Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.Content().Element(container =>
+                    {
+                        container
+                            .Background(Colors.White)
+                            .Padding(25)
+                            .Column(column =>
+                            {
+                                column
+                                    .Item()
+                                    .PaddingBottom(10)
+                                    .Text("Chart example")
+                                    .FontSize(20)
+                                    .SemiBold()
+                                    .FontColor(Colors.Blue.Medium);
+
+                                column
+                                    .Item()
+                                    .Border(1)
+                                    .ExtendHorizontal()
+                                    .Height(300)
+                                    .Canvas((canvas, size) =>
+                                    {
+                                        var chart = new LineChart
+                                        {
+                                            Entries = entries,
+
+                                            LabelOrientation = Microcharts.Orientation.Horizontal,
+                                            ValueLabelOrientation = Microcharts.Orientation.Horizontal,
+
+                                            IsAnimated = false,
+                                        };
+
+                                        chart.DrawContent(canvas, (int)size.Width, (int)size.Height);
+                                    });
+                            });
+                    });
+                });
+            });
+
+            document.GeneratePdf(filePath);
+
+            var process = new Process
+            {
+                StartInfo = new ProcessStartInfo(filePath)
+                {
+                    UseShellExecute = true
+                }
+            };
+
+            process.Start();
+        }
     }
 }
+
