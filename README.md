@@ -1,5 +1,5 @@
 # XamlBrewer.WinUI3.QuestPDF.Sample
-Demonstrates generating PDF documents with QuestPDF in a WinUI 3 Desktop application:
+Demonstrates generating PDF documents with [QuestPDF](https://github.com/QuestPDF/QuestPDF) in a WinUI 3 Desktop application:
 * Hello World
 * Invoice with tables
 * Chart
