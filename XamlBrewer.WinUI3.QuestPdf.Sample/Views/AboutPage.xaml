@@ -15,7 +15,8 @@
             <LineBreak />
             <Run>* Hello World</Run><LineBreak />
             <Run>* Invoice</Run><LineBreak />
-            <Run>* Diagrams</Run><LineBreak />
+            <Run>* Charts</Run><LineBreak />
+            <Run>* Barcodes</Run><LineBreak />
             <Run>* ... </Run><LineBreak />
             <LineBreak /><LineBreak />
         </TextBlock>

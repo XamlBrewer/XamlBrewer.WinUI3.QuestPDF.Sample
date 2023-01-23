@@ -158,6 +158,46 @@
                 </Grid>
             </GridViewItem>
 
+            <!-- Barcode -->
+            <GridViewItem CornerRadius="4"
+                          Padding="0"
+                          Margin="0 0 20 20">
+                <Grid Width="400"
+                      Height="340"
+                      Margin="0"
+                      CornerRadius="4"
+                      RowDefinitions="auto, *">
+                    <Border Margin="0"
+                            Background="Transparent"
+                            BorderThickness="2"
+                            BorderBrush="Silver"
+                            Opacity=".1"
+                            Grid.RowSpan="10" />
+                    <Border Margin="0"
+                            BorderThickness="0"
+                            Background="{ThemeResource SystemAccentColor}"
+                            Opacity=".1" />
+
+                    <TextBlock Text="Barcode"
+                               Padding="0"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Stretch"
+                               FontSize="16"
+                               Margin="10" />
+
+                    <Image Source="/Assets/Barcode.png"
+                           Grid.Row="1"
+                           Margin="12 12 12 54" />
+
+                    <Button Content="Run"
+                            Click="BarcodeButton_Click"
+                            Grid.Row="1"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Right"
+                            Margin="12" />
+                </Grid>
+            </GridViewItem>
+
         </GridView>
     </Grid>
 </Page>

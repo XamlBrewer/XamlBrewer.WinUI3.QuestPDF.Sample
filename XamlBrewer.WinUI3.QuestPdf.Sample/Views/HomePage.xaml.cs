@@ -1,13 +1,17 @@
 using Microcharts;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using QuestPDF.Drawing;
 using QuestPDF.ExampleInvoice;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using QuestPDF.Previewer;
 using SkiaSharp;
+using System;
 using System.Diagnostics;
+using System.IO;
+using Windows.Storage;
 
 namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
 {
@@ -165,6 +169,45 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
                                         chart.DrawContent(canvas, (int)size.Width, (int)size.Height);
                                     });
                             });
+                    });
+                });
+            });
+
+            document.GeneratePdf(filePath);
+
+            var process = new Process
+            {
+                StartInfo = new ProcessStartInfo(filePath)
+                {
+                    UseShellExecute = true
+                }
+            };
+
+            process.Start();
+        }
+
+        // Source: https://github.com/QuestPDF/QuestPDF/blob/main/Source/QuestPDF.Examples/BarcodeExamples.cs
+        private void BarcodeButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            var fontFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Fonts", "LibreBarcode39-Regular.ttf");
+            FontManager.RegisterFont(File.OpenRead(fontFile));
+
+            var filePath = "C:\\Temp\\barcode.pdf";
+
+            var document = Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.Content().Element(container =>
+                    {
+                        container
+                            .Background(Colors.White)
+                            .AlignCenter()
+                            .AlignMiddle()
+                            .Text("*QuestPDF*")
+                            .FontFamily("Libre Barcode 39")
+                            .FontSize(64);
                     });
                 });
             });
