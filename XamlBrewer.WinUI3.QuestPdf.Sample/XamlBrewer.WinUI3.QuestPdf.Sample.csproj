@@ -15,15 +15,22 @@
     <Content Remove="Assets\About.png" />
     <Content Remove="Assets\Barcode.png" />
     <Content Remove="Assets\Beer.ico" />
+    <Content Remove="Assets\Brochure.png" />
     <Content Remove="Assets\Chart.png" />
     <Content Remove="Assets\HelloWorld.png" />
     <Content Remove="Assets\Home.png" />
     <Content Remove="Assets\Invoice.png" />
+    <Content Remove="Assets\Moons\callisto.png" />
+    <Content Remove="Assets\Moons\europa.png" />
+    <Content Remove="Assets\Moons\ganymede.png" />
+    <Content Remove="Assets\Moons\mimas.png" />
+    <Content Remove="Assets\Moons\notamoon.png" />
     <Content Remove="Assets\QuestPDFLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Shell.xaml" />
     <None Remove="Views\AboutPage.xaml" />
+    <None Remove="Views\BrochurePage.xaml" />
     <None Remove="Views\HomePage.xaml" />
   </ItemGroup>
 
@@ -67,6 +74,9 @@
     <None Update="Assets\Beer.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\Brochure.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\Chart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -79,12 +89,30 @@
     <None Update="Assets\Invoice.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\Moons\callisto.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Moons\europa.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Moons\ganymede.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Moons\mimas.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Moons\notamoon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Assets\QuestPDFLogo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Fonts\LibreBarcode39-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\BrochurePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Shell.xaml">

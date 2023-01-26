@@ -28,9 +28,17 @@
             <NavigationView.MenuItems>
                 <NavigationViewItem Content="Home"
                                     Tag="XamlBrewer.WinUI3.QuestPDF.Sample.Views.HomePage"
-                                    ToolTipService.ToolTip="Hello World">
+                                    ToolTipService.ToolTip="Samples">
                     <NavigationViewItem.Icon>
                         <BitmapIcon UriSource="/Assets/Home.png"
+                                    ShowAsMonochrome="False" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Brochure"
+                                    Tag="XamlBrewer.WinUI3.QuestPDF.Sample.Views.BrochurePage"
+                                    ToolTipService.ToolTip="Brochure">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="/Assets/Brochure.png"
                                     ShowAsMonochrome="False" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
