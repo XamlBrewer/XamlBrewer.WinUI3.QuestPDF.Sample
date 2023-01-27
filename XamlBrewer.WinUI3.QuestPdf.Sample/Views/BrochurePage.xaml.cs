@@ -1,6 +1,10 @@
 using Microsoft.UI.Xaml.Controls;
+using QuestPDF.ExampleInvoice;
+using QuestPDF.Fluent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using XamlBrewer.WinUI3.QuestPDF.Sample.Models;
+using XamlBrewer.WinUI3.QuestPDF.Sample.Services.DocumentGeneration;
 
 namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
 {
@@ -21,7 +25,21 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
 
         private void BrochureButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
-            // coming soon ...
+            var filePath = "C:\\Temp\\brochure.pdf";
+
+            var document = new BrochureDocument(Moons);
+
+            document.GeneratePdf(filePath);
+
+            var process = new Process
+            {
+                StartInfo = new ProcessStartInfo(filePath)
+                {
+                    UseShellExecute = true
+                }
+            };
+
+            process.Start();
         }
     }
 }
