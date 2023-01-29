@@ -20,6 +20,7 @@
     <Content Remove="Assets\HelloWorld.png" />
     <Content Remove="Assets\Home.png" />
     <Content Remove="Assets\Invoice.png" />
+    <Content Remove="Assets\Moons\Banner.png" />
     <Content Remove="Assets\Moons\callisto.png" />
     <Content Remove="Assets\Moons\europa.png" />
     <Content Remove="Assets\Moons\ganymede.png" />
@@ -87,6 +88,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Invoice.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Moons\Banner.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Moons\callisto.png">

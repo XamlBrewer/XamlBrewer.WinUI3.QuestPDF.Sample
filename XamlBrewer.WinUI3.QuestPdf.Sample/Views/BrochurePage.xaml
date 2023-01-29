@@ -29,7 +29,7 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="500"
+                    <Grid Height="600"
                           Width="600">
                         <Grid Height="500"
                               Width="500">
@@ -37,7 +37,7 @@
                                    Stretch="Uniform"
                                    Margin="80" />
                         </Grid>
-                        <Grid Height="500"
+                        <Grid Height="600"
                               Width="600">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto" />

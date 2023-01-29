@@ -1,5 +1,4 @@
 using Microsoft.UI.Xaml.Controls;
-using QuestPDF.ExampleInvoice;
 using QuestPDF.Fluent;
 using System.Collections.Generic;
 using System.Diagnostics;
