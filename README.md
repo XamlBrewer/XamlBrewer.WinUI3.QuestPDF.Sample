@@ -10,6 +10,6 @@ Demonstrates generating PDF documents with [QuestPDF](https://github.com/QuestPD
 
 ![Screenshot](Assets/PdfSampleApp.png?raw=true)
 
-![Screenshot](Assets/BrochureDocument.png?raw=true)
-
 ![Screenshot](Assets/BrochurePage.png?raw=true)
+
+![Screenshot](Assets/BrochureDocument.png?raw=true)
