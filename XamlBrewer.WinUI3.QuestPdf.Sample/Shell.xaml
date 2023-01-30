@@ -42,6 +42,14 @@
                                     ShowAsMonochrome="False" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
+                <NavigationViewItem Content="Charts"
+                                    Tag="XamlBrewer.WinUI3.QuestPDF.Sample.Views.ChartsPage"
+                                    ToolTipService.ToolTip="Charts">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="/Assets/BarChart.png"
+                                    ShowAsMonochrome="False" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>                
             </NavigationView.MenuItems>
             <NavigationView.FooterMenuItems>
                 <NavigationViewItem Content="About"

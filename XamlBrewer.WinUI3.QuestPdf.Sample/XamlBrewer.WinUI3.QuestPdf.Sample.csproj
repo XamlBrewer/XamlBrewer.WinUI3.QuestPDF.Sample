@@ -13,6 +13,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\About.png" />
+    <Content Remove="Assets\BarChart.png" />
     <Content Remove="Assets\Barcode.png" />
     <Content Remove="Assets\Beer.ico" />
     <Content Remove="Assets\Brochure.png" />
@@ -32,6 +33,7 @@
     <None Remove="Shell.xaml" />
     <None Remove="Views\AboutPage.xaml" />
     <None Remove="Views\BrochurePage.xaml" />
+    <None Remove="Views\ChartsPage.xaml" />
     <None Remove="Views\HomePage.xaml" />
   </ItemGroup>
 
@@ -48,9 +50,10 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
     <PackageReference Include="Microcharts" Version="0.9.5.9" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.221209.1" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230118.102" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
     <PackageReference Include="QuestPDF" Version="2022.12.1" />
+    <PackageReference Include="SkiaSharp.Views.WinUI" Version="2.88.3" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 
@@ -67,6 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Update="Assets\About.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\BarChart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Barcode.png">
@@ -114,6 +120,9 @@
     <None Update="Fonts\LibreBarcode39-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\ChartsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\BrochurePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
