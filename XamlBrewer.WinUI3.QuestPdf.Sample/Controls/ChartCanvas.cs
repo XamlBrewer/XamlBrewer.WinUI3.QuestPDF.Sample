@@ -17,21 +17,26 @@ namespace XamlBrewer.WinUI.Controls
             get { return (Chart)GetValue(ChartProperty); }
             set
             {
+                if (Chart != null)
+                {
+                    Chart.PropertyChanged -= (o, e) => { Invalidate(); };
+                }
+
                 SetValue(ChartProperty, value);
                 Invalidate();
+
+                if (Chart != null)
+                {
+                    Chart.PropertyChanged += (o, e) => { Invalidate(); };
+                }
             }
         }
 
         protected override void OnPaintSurface(SKPaintSurfaceEventArgs e)
         {
-            if (Chart == null)
-            {
-                e.Surface.Canvas.Clear();
-            }
-            else
-            {
-                Chart.DrawContent(e.Surface.Canvas, e.Info.Width, e.Info.Height);
-            }
+            e.Surface.Canvas.Clear();
+
+            Chart?.DrawContent(e.Surface.Canvas, e.Info.Width, e.Info.Height);
 
             base.OnPaintSurface(e);
         }
