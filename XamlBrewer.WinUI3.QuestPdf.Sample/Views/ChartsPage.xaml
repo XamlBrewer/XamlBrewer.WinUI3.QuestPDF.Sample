@@ -1,14 +1,52 @@
-<Page
-    x:Class="XamlBrewer.WinUI3.QuestPDF.Sample.Views.ChartsPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:XamlBrewer.WinUI3.QuestPDF.Sample.Views"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="Transparent">
+<Page x:Class="XamlBrewer.WinUI3.QuestPDF.Sample.Views.ChartsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:XamlBrewer.WinUI3.QuestPDF.Sample.Views"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:controls="using:XamlBrewer.WinUI.Controls"
+      mc:Ignorable="d"
+      Background="Transparent">
 
     <Grid>
+        <!-- QuestPDF Logo -->
+        <Image Source="/Assets/QuestPDFLogo.png"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Left"
+               Height="48" />
 
+        <!-- Charts -->
+        <Grid Margin="0 80">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <controls:ChartCanvas Chart="{x:Bind BarChart}" />
+            <controls:ChartCanvas Chart="{x:Bind LineChart}"
+                                  Grid.Column="1" />
+            <controls:ChartCanvas Chart="{x:Bind RadarChart}"
+                                  Grid.Row="1" />
+            <controls:ChartCanvas Chart="{x:Bind RadialGaugeChart}"
+                                  Grid.Row="1"
+                                  Grid.Column="1" />
+        </Grid>
+
+        <!-- Button -->
+        <Button Click="ChartButton_Click"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Assets/BarChart.png"
+                       Height="32"
+                       Margin="6" />
+                <TextBlock Text="Generate PDF"
+                           Margin="6"
+                           VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
     </Grid>
 </Page>
