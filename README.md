@@ -4,7 +4,8 @@ Demonstrates generating PDF documents with [QuestPDF](https://github.com/QuestPD
 * Invoice with tables
 * Chart
 * Barcode
-* (more to come)
+* Brochure type documents
+* Microchart diagrams code reuse in XAML and PDF
 
 <a href="https://www.buymeacoffee.com/xamlbrewer" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
