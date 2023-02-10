@@ -7,6 +7,8 @@ Demonstrates generating PDF documents with [QuestPDF](https://github.com/QuestPD
 * Brochure type documents
 * Microchart diagrams code reuse in XAML and PDF
 
+*Note: this sample app generates its documents in the C:\temp folder. Make sure this folder exists, or change the path in the source code.*
+
 <a href="https://www.buymeacoffee.com/xamlbrewer" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
 ![Screenshot](Assets/PdfSampleApp.png?raw=true)
