@@ -22,3 +22,5 @@ Demonstrates generating PDF documents with [QuestPDF](https://github.com/QuestPD
 ![Screenshot](Assets/ChartsPage.png?raw=true)
 
 ![Screenshot](Assets/ChartsDocument.png?raw=true)
+
+![Screenshot](Assets/OxyPlot.png?raw=true)
