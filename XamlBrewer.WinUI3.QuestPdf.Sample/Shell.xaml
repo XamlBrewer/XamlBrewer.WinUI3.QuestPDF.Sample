@@ -42,14 +42,22 @@
                                     ShowAsMonochrome="False" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="Charts"
+                <NavigationViewItem Content="MicroCharts"
                                     Tag="XamlBrewer.WinUI3.QuestPDF.Sample.Views.ChartsPage"
-                                    ToolTipService.ToolTip="Charts">
+                                    ToolTipService.ToolTip="MicroCharts">
                     <NavigationViewItem.Icon>
                         <BitmapIcon UriSource="/Assets/BarChart.png"
                                     ShowAsMonochrome="False" />
                     </NavigationViewItem.Icon>
-                </NavigationViewItem>                
+                </NavigationViewItem>
+                <NavigationViewItem Content="OxyPlot"
+                                    Tag="XamlBrewer.WinUI3.QuestPDF.Sample.Views.OxyPlotPage"
+                                    ToolTipService.ToolTip="OxyPlot">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="/Assets/BarChart.png"
+                                    ShowAsMonochrome="False" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
             </NavigationView.MenuItems>
             <NavigationView.FooterMenuItems>
                 <NavigationViewItem Content="About"

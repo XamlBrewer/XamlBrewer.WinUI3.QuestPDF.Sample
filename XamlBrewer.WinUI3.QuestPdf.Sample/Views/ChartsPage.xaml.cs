@@ -4,7 +4,6 @@ using QuestPDF.Fluent;
 using SkiaSharp;
 using System.Collections.Generic;
 using System.Diagnostics;
-using XamlBrewer.WinUI3.QuestPDF.Sample.Models;
 using XamlBrewer.WinUI3.QuestPDF.Sample.Services.DocumentGeneration;
 
 namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views

@@ -4,6 +4,8 @@ Demonstrates generating PDF documents with [QuestPDF](https://github.com/QuestPD
 * Invoice with tables
 * Chart
 * Barcode
+* Displaying Microchart charts in XAML and PDF
+* Displaying OxyPlot charts in XAML and PDF
 * (more to come)
 
 <a href="https://www.buymeacoffee.com/xamlbrewer" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
@@ -17,3 +19,5 @@ Demonstrates generating PDF documents with [QuestPDF](https://github.com/QuestPD
 ![Screenshot](Assets/ChartsPage.png?raw=true)
 
 ![Screenshot](Assets/ChartsDocument.png?raw=true)
+
+![Screenshot](Assets/OxyPlot.png?raw=true)

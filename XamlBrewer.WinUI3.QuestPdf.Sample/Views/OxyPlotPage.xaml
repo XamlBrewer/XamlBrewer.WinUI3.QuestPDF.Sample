@@ -1,0 +1,56 @@
+<Page x:Class="XamlBrewer.WinUI3.QuestPDF.Sample.Views.OxyPlotPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:oxyplot="using:OxyPlot"
+      mc:Ignorable="d"
+      Background="Transparent">
+
+    <Grid>
+        <!-- QuestPDF Logo -->
+        <Image Source="/Assets/QuestPDFLogo.png"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Left"
+               Height="48" />
+        <!-- Charts -->
+        <Grid Margin="0 80"
+              ColumnSpacing="10"
+              RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <oxyplot:PlotView Model="{x:Bind LineSeriesModel}"
+                              Background="Transparent" />
+            <oxyplot:PlotView Model="{x:Bind AreaSeriesModel}"
+                              Background="Transparent"
+                              Grid.Column="1" />
+            <oxyplot:PlotView Model="{x:Bind PieSeriesModel}"
+                              Background="Transparent"
+                              Grid.Row="1" />
+            <oxyplot:PlotView Model="{x:Bind FunctionSeriesModel}"
+                              Background="Transparent"
+                              Grid.Row="1"
+                              Grid.Column="1" />
+        </Grid>
+
+        <!-- Button -->
+        <Button Click="ChartButton_Click"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Assets/BarChart.png"
+                       Height="32"
+                       Margin="6" />
+                <TextBlock Text="Generate PDF"
+                           Margin="6"
+                           VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

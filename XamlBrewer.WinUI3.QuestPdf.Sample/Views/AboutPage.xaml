@@ -19,6 +19,7 @@
             <Run Text="  * Barcode" /><LineBreak />
             <Run>* A brochure type document</Run><LineBreak />
             <Run Text="* How to reuse " /><Hyperlink NavigateUri="https://github.com/microcharts-dotnet/Microcharts">Microcharts</Hyperlink><Run Text=" diagrams in XAML and PDF" /><LineBreak />
+            <Run Text="* How to reuse " /><Hyperlink NavigateUri="https://github.com/oxyplot/oxyplot">OxyPlot</Hyperlink><Run Text=" diagrams in XAML and PDF" /><LineBreak />            
             <LineBreak /><LineBreak />
         </TextBlock>
     </Grid>
