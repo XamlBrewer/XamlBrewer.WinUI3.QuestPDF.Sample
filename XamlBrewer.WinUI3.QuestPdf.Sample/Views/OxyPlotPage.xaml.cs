@@ -1,5 +1,6 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Navigation;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using XamlBrewer.WinUI3.QuestPDF.Sample.Services.DocumentGeneration;
+using XamlBrewer.WinUI3.Services.Theming;
 
 namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
 {
@@ -29,11 +31,42 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
         public OxyPlotPage()
         {
             InitializeComponent();
+            Loaded += Page_Loaded;
 
             InitializeAreaSeriesModel();
             InitializeFunctionSeriesModel();
             InitializeLineSeriesModel();
             InitializePieSeriesModel();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            ApplyTheme(ActualTheme);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ActualThemeChanged += Page_ActualThemeChanged;
+            base.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            ActualThemeChanged -= Page_ActualThemeChanged;
+            base.OnNavigatedFrom(e);
+        }
+
+        private void Page_ActualThemeChanged(FrameworkElement sender, object args)
+        {
+            ApplyTheme(sender.ActualTheme);
+        }
+
+        private void ApplyTheme(ElementTheme theme)
+        {
+            LineSeriesModel.ApplyTheme(theme);
+            AreaSeriesModel.ApplyTheme(theme);
+            PieSeriesModel.ApplyTheme(theme);
+            FunctionSeriesModel.ApplyTheme(theme);
         }
 
         private static DataPointSeries CreateNormalDistributionSeries(double x0, double x1, double mean, double variance, int n = 1001)
@@ -147,6 +180,11 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
         {
             var filePath = "C:\\Temp\\oxyplot.pdf";
 
+            if (ActualTheme == ElementTheme.Dark)
+            {
+                ApplyTheme(ElementTheme.Light);
+            }
+
             var document = new OxyPlotDocument(
                 new List<PlotModel> {
                     LineSeriesModel,
@@ -156,6 +194,11 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
                 });
 
             document.GeneratePdf(filePath);
+
+            if (ActualTheme == ElementTheme.Dark)
+            {
+                ApplyTheme(ElementTheme.Dark);
+            }
 
             var process = new Process
             {
