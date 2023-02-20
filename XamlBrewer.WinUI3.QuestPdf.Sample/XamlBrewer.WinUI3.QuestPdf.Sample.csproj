@@ -28,6 +28,7 @@
     <Content Remove="Assets\Moons\mimas.png" />
     <Content Remove="Assets\Moons\notamoon.png" />
     <Content Remove="Assets\QuestPDFLogo.png" />
+    <Content Remove="Assets\winui_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Shell.xaml" />
@@ -35,7 +36,8 @@
     <None Remove="Views\BrochurePage.xaml" />
     <None Remove="Views\ChartsPage.xaml" />
     <None Remove="Views\HomePage.xaml" />
-    <None Remove="Views\OxyPlotPage.xaml" />
+    <None Remove="Views\OxyPlotPage - Copy.xaml" />
+    <None Remove="Views\XamlControlPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,6 +52,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Input" Version="7.1.2" />
     <PackageReference Include="H.OxyPlot.WinUI" Version="0.9.30" />
     <PackageReference Include="Microcharts" Version="0.9.5.9" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230118.102" />
@@ -120,10 +123,17 @@
     <None Update="Assets\QuestPDFLogo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Assets\winui_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Fonts\LibreBarcode39-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Page Update="Views\OxyPlotPage.xaml">
+    <Page Update="Views\OxyPlotPage - Copy.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\XamlControlPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Update="Views\ChartsPage.xaml">

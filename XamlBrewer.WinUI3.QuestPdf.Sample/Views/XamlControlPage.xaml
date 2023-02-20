@@ -1,0 +1,54 @@
+<Page x:Class="XamlBrewer.WinUI3.QuestPDF.Sample.Views.XamlControlPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:oxyplot="using:OxyPlot"
+      xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+      mc:Ignorable="d"
+      Background="Transparent">
+
+    <Grid>
+        <!-- QuestPDF Logo -->
+        <Image Source="/Assets/QuestPDFLogo.png"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Left"
+               Height="48" />
+
+        <!-- Controls -->
+        <Grid x:Name="ControlsGrid"
+              Margin="0 80"
+              ColumnSpacing="10"
+              RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <controls:RadialGauge x:Name="RadialGauge"
+                                  Value="72"
+                                  Maximum="100"
+                                  Unit="DPI" />
+            <Image x:Name="TestImage"
+                   Stretch="None"
+                   Grid.Column="1" />
+        </Grid>
+
+        <!-- Button -->
+        <Button Click="XamlControlButton_Click"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/Assets/Winui_icon.png"
+                       Height="32"
+                       Margin="6" />
+                <TextBlock Text="Generate PDF"
+                           Margin="6"
+                           VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>
