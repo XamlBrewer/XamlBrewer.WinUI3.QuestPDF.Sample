@@ -29,9 +29,18 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <controls:RadialGauge x:Name="RadialGauge"
-                                  Value="72"
-                                  Maximum="100"
-                                  Unit="DPI" />
+                                  Value="7"
+                                  Maximum="12"
+                                  Unit="Swans a-swimming"
+                                  TrailBrush="CornflowerBlue"
+                                  NeedleBrush="Orange"
+                                  TickBrush="Silver"
+                                  TickLength="12"
+                                  TickWidth="2"
+                                  TickSpacing="1"
+                                  ScaleTickBrush="Transparent"
+                                  MinAngle="-135"
+                                  MaxAngle="135" />
             <Image x:Name="TestImage"
                    Stretch="None"
                    Grid.Column="1" />
