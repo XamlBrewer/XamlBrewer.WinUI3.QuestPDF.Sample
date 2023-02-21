@@ -21,12 +21,12 @@
               ColumnSpacing="10"
               RowSpacing="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <controls:RadialGauge x:Name="RadialGauge"
                                   Value="7"
@@ -44,6 +44,57 @@
             <Image x:Name="TestImage"
                    Stretch="None"
                    Grid.Column="1" />
+            <controls:OrbitView x:Name="OrbitView"
+                                Background="Transparent"
+                                Grid.Row="1"
+                                OrbitsEnabled="True"
+                                AnchorsEnabled="False"
+                                MinItemSize="30"
+                                MaxItemSize="60"
+                                AnchorColor="Gainsboro"
+                                OrbitColor="Gainsboro"
+                                Height="500"
+                                Width="500"
+                                Padding="0">
+                <controls:OrbitView.ItemTemplate>
+                    <DataTemplate x:DataType="controls:OrbitViewDataItem">
+                        <controls:DropShadowPanel Color="DimGray"
+                                                  BlurRadius="20"
+                                                  VerticalContentAlignment="Stretch"
+                                                  HorizontalContentAlignment="Stretch">
+                            <Ellipse>
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{x:Bind Image}"></ImageBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </controls:DropShadowPanel>
+                    </DataTemplate>
+                </controls:OrbitView.ItemTemplate>
+
+                <controls:OrbitView.ItemsSource>
+                    <controls:OrbitViewDataItemCollection>
+                        <controls:OrbitViewDataItem Image="ms-appx:///Assets/Moons/callisto.png"
+                                                    Distance="0.2"
+                                                    Diameter="0.3"></controls:OrbitViewDataItem>
+                        <controls:OrbitViewDataItem Image="ms-appx:///Assets/Moons/Europa.png"
+                                                    Distance="0.3"
+                                                    Diameter="0.5"></controls:OrbitViewDataItem>
+                        <controls:OrbitViewDataItem Image="ms-appx:///Assets/Moons/ganymede.png"
+                                                    Distance="0.6"
+                                                    Diameter="0.6"></controls:OrbitViewDataItem>
+                        <controls:OrbitViewDataItem Image="ms-appx:///Assets/Moons/notamoon.png"
+                                                    Distance="0.8"
+                                                    Diameter="0.8"></controls:OrbitViewDataItem>
+                    </controls:OrbitViewDataItemCollection>
+                </controls:OrbitView.ItemsSource>
+
+                <controls:OrbitView.CenterContent>
+                    <Image Source="/Assets/Moons/sun.png"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Height="100" />
+                </controls:OrbitView.CenterContent>
+            </controls:OrbitView>
         </Grid>
 
         <!-- Button -->

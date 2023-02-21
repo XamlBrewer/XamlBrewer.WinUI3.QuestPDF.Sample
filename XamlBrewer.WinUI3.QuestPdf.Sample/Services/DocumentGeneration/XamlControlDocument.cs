@@ -7,9 +7,9 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Services.DocumentGeneration
 {
     internal class XamlControlDocument : IDocument
     {
-        public List<byte[]> Model { get; }
+        public Dictionary<string, byte[]> Model { get; }
 
-        public XamlControlDocument(List<byte[]> model)
+        public XamlControlDocument(Dictionary<string, byte[]> model)
         {
             Model = model;
         }
@@ -41,12 +41,13 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Services.DocumentGeneration
         {
             body.Column(column =>
             {
-                foreach (var xamlControl in Model)
-                {
-                    column.Item()
-                        .Height(100)
-                        .Image(xamlControl, ImageScaling.FitHeight);
-                }
+                column.Item()
+                    .Height(150)
+                    .Image(Model["RadialGauge"], ImageScaling.FitHeight);
+
+                column.Item()
+                    .Height(450)
+                    .Image(Model["OrbitView"], ImageScaling.FitHeight);
             });
         }
     }

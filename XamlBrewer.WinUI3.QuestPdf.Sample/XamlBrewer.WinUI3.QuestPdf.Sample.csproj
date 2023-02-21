@@ -27,6 +27,7 @@
     <Content Remove="Assets\Moons\ganymede.png" />
     <Content Remove="Assets\Moons\mimas.png" />
     <Content Remove="Assets\Moons\notamoon.png" />
+    <Content Remove="Assets\Moons\sun.png" />
     <Content Remove="Assets\QuestPDFLogo.png" />
     <Content Remove="Assets\winui_icon.png" />
   </ItemGroup>
@@ -52,6 +53,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Input" Version="7.1.2" />
     <PackageReference Include="H.OxyPlot.WinUI" Version="0.9.30" />
     <PackageReference Include="Microcharts" Version="0.9.5.9" />
@@ -118,6 +120,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Moons\notamoon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Moons\sun.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\QuestPDFLogo.png">
