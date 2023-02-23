@@ -41,13 +41,49 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Services.DocumentGeneration
         {
             body.Column(column =>
             {
+                column.Spacing(10);
+
+                column.Item().Text("Slider:");
+                column.Item()
+                    .Height(50)
+                    .Image(Model["Slider"], ImageScaling.FitArea);
+
+                column.Item().Text("Radial Gauge:");
                 column.Item()
                     .Height(150)
-                    .Image(Model["RadialGauge"], ImageScaling.FitHeight);
+                    .Image(Model["RadialGauge"], ImageScaling.FitArea);
 
+                column.Item().Text("NumberBox:");
                 column.Item()
-                    .Height(450)
-                    .Image(Model["OrbitView"], ImageScaling.FitHeight);
+                    .Height(30)
+                    .Image(Model["NumberBox"], ImageScaling.FitArea);
+
+                column.Item().Text("CheckBox:");
+                column.Item()
+                    .Height(40)
+                    .Image(Model["CheckBox"], ImageScaling.FitArea);
+
+                column.Item().Text("RatingControl:");
+                column.Item()
+                    .Height(40)
+                    .Image(Model["RatingControl"], ImageScaling.FitArea);
+
+                column.Item().Text("RadioButton:");
+                column.Item()
+                    .Height(30)
+                    .Image(Model["RadioButton"], ImageScaling.FitArea);
+
+                column.Item().Text("Button:");
+                column.Item()
+                    .Height(60)
+                    .Image(Model["Button"], ImageScaling.FitArea);
+
+                column.Item().PageBreak();
+
+                column.Item().Text("OrbitView:");
+                column.Item()
+                    .Height(600)
+                    .Image(Model["OrbitView"], ImageScaling.FitArea);
             });
         }
     }

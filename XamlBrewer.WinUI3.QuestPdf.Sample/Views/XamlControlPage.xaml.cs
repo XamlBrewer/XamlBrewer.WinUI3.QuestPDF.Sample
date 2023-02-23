@@ -9,7 +9,6 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
 using Windows.Storage.Streams;
-using XamlBrewer.WinUI3.QuestPDF.Sample.Models;
 using XamlBrewer.WinUI3.QuestPDF.Sample.Services.DocumentGeneration;
 
 namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
@@ -23,15 +22,24 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
 
         private async void XamlControlButton_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
+            var switchTheme = false;
+
             var filePath = "C:\\Temp\\xamlcontrols.pdf";
 
-            //if (ActualTheme == ElementTheme.Dark)
-            //{
-            //    ApplyTheme(ElementTheme.Light);
-            //}
+            if (ActualTheme == ElementTheme.Dark)
+            {
+                switchTheme = true;
+                RequestedTheme = ElementTheme.Light;
+            }
 
             var images = new Dictionary<string, byte[]>
             {
+                { "Slider", await CreateBytes(Slider) },
+                { "Button", await CreateBytes(Button) },
+                { "NumberBox", await CreateBytes(NumberBox) },
+                { "RatingControl", await CreateBytes(RatingControl) },
+                { "CheckBox", await CreateBytes(CheckBox) },
+                { "RadioButton", await CreateBytes(RadioButton) },
                 { "RadialGauge", await CreateBytes(RadialGauge) },
                 { "OrbitView", await CreateBytes(OrbitView) }
             };
@@ -40,10 +48,10 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
 
             document.GeneratePdf(filePath);
 
-            //if (ActualTheme == ElementTheme.Dark)
-            //{
-            //    ApplyTheme(ElementTheme.Dark);
-            //}
+            if (switchTheme)
+            {
+                RequestedTheme = ElementTheme.Default;
+            }
 
             var process = new Process
             {
@@ -53,36 +61,33 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
                 }
             };
 
-        process.Start();
+            process.Start();
         }
 
-    private async Task<byte[]> CreateBytes(UIElement control)
-    {
-        // Get XAML Visual in BGRA8 format
-        var rtb = new RenderTargetBitmap();
-        await rtb.RenderAsync(control, (int)control.DesiredSize.Width, (int)control.DesiredSize.Height);
+        private async Task<byte[]> CreateBytes(UIElement control)
+        {
+            // Get XAML Visual in BGRA8 format
+            var rtb = new RenderTargetBitmap();
+            await rtb.RenderAsync(control, (int)control.RenderSize.Width, (int)control.RenderSize.Height);
 
-        // Apply to test image
-        TestImage.Source = rtb;
+            // Encode as PNG
+            var pixelBuffer = (await rtb.GetPixelsAsync()).ToArray();
+            IRandomAccessStream mraStream = new InMemoryRandomAccessStream();
+            var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, mraStream);
+            encoder.SetPixelData(
+                BitmapPixelFormat.Bgra8,
+                BitmapAlphaMode.Premultiplied,
+                (uint)rtb.PixelWidth,
+                (uint)rtb.PixelHeight,
+                184,
+                184,
+                pixelBuffer);
+            await encoder.FlushAsync();
 
-        // Encode as PNG
-        var pixelBuffer = (await rtb.GetPixelsAsync()).ToArray();
-        IRandomAccessStream mraStream = new InMemoryRandomAccessStream();
-        var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, mraStream);
-        encoder.SetPixelData(
-            BitmapPixelFormat.Bgra8,
-            BitmapAlphaMode.Premultiplied,
-            (uint)rtb.PixelWidth,
-            (uint)rtb.PixelHeight,
-            400,
-            400,
-            pixelBuffer);
-        await encoder.FlushAsync();
-
-        // Transform to byte array
-        var bytes = new byte[mraStream.Size];
-        await mraStream.ReadAsync(bytes.AsBuffer(), (uint)mraStream.Size, InputStreamOptions.None);
-        return bytes;
+            // Transform to byte array
+            var bytes = new byte[mraStream.Size];
+            await mraStream.ReadAsync(bytes.AsBuffer(), (uint)mraStream.Size, InputStreamOptions.None);
+            return bytes;
+        }
     }
-}
 }

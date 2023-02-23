@@ -28,6 +28,7 @@
     <Content Remove="Assets\Moons\mimas.png" />
     <Content Remove="Assets\Moons\notamoon.png" />
     <Content Remove="Assets\Moons\sun.png" />
+    <Content Remove="Assets\partridge.png" />
     <Content Remove="Assets\QuestPDFLogo.png" />
     <Content Remove="Assets\winui_icon.png" />
   </ItemGroup>
@@ -123,6 +124,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\Moons\sun.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Partridge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Assets\QuestPDFLogo.png">

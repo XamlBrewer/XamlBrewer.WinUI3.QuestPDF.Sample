@@ -21,41 +21,80 @@
               ColumnSpacing="10"
               RowSpacing="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
             </Grid.ColumnDefinitions>
-            <controls:RadialGauge x:Name="RadialGauge"
-                                  Value="7"
-                                  Maximum="12"
-                                  Unit="Swans a-swimming"
-                                  TrailBrush="CornflowerBlue"
-                                  NeedleBrush="Orange"
-                                  TickBrush="Silver"
-                                  TickLength="12"
-                                  TickWidth="2"
-                                  TickSpacing="1"
-                                  ScaleTickBrush="Transparent"
-                                  MinAngle="-135"
-                                  MaxAngle="135" />
-            <Image x:Name="TestImage"
-                   Stretch="None"
-                   Grid.Column="1" />
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Spacing="20">
+                    <Slider x:Name="Slider"
+                            Header="8 Maids a-milking"
+                            Value="8"
+                            Maximum="12" />
+                    <ContentControl VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Grid.Row="1"
+                                    MaxHeight="200">
+                        <controls:RadialGauge x:Name="RadialGauge"
+                                              Value="7"
+                                              Maximum="12"
+                                              Unit="Swans a-swimming"
+                                              TrailBrush="CornflowerBlue"
+                                              NeedleBrush="Orange"
+                                              TickBrush="Silver"
+                                              TickLength="12"
+                                              TickWidth="2"
+                                              TickSpacing="1"
+                                              ScaleTickBrush="Transparent"
+                                              MinAngle="-135"
+                                              MaxAngle="135"
+                                              Grid.Row="1" />
+                    </ContentControl>
+                    <NumberBox x:Name="NumberBox"
+                               PlaceholderText="6 geese a-laying"
+                               SpinButtonPlacementMode="Inline" />
+                    <CheckBox x:Name="CheckBox"
+                              Content="5 golden rings"
+                              IsChecked="True" />
+                    <RatingControl x:Name="RatingControl"
+                                   Value="4"
+                                   Caption="4 calling birds"
+                                   HorizontalAlignment="Left" />
+                    <RadioButtons x:Name="RadioButton"
+                                  MaxColumns="2"
+                                  SelectedIndex="1">
+                        <x:String>3 French hens</x:String>
+                        <x:String>2 turtle doves</x:String>
+                    </RadioButtons>
+                    <Button x:Name="Button">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Assets/Partridge.png"
+                                   Height="32"
+                                   Margin="6" />
+                            <TextBlock Text="A partridge in a pear tree"
+                                       Margin="6"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
+
+
             <controls:OrbitView x:Name="OrbitView"
                                 Background="Transparent"
-                                Grid.Row="1"
                                 OrbitsEnabled="True"
                                 AnchorsEnabled="False"
                                 MinItemSize="30"
                                 MaxItemSize="60"
                                 AnchorColor="Gainsboro"
                                 OrbitColor="Gainsboro"
-                                Height="500"
-                                Width="500"
-                                Padding="0">
+                                Grid.Column="1"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Left"
+                                Margin="-60">
                 <controls:OrbitView.ItemTemplate>
                     <DataTemplate x:DataType="controls:OrbitViewDataItem">
                         <controls:DropShadowPanel Color="DimGray"
@@ -70,7 +109,6 @@
                         </controls:DropShadowPanel>
                     </DataTemplate>
                 </controls:OrbitView.ItemTemplate>
-
                 <controls:OrbitView.ItemsSource>
                     <controls:OrbitViewDataItemCollection>
                         <controls:OrbitViewDataItem Image="ms-appx:///Assets/Moons/callisto.png"
@@ -87,7 +125,6 @@
                                                     Diameter="0.8"></controls:OrbitViewDataItem>
                     </controls:OrbitViewDataItemCollection>
                 </controls:OrbitView.ItemsSource>
-
                 <controls:OrbitView.CenterContent>
                     <Image Source="/Assets/Moons/sun.png"
                            VerticalAlignment="Center"
@@ -95,6 +132,7 @@
                            Height="100" />
                 </controls:OrbitView.CenterContent>
             </controls:OrbitView>
+
         </Grid>
 
         <!-- Button -->
