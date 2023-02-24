@@ -7,7 +7,7 @@ Demonstrates generating PDF documents with [QuestPDF](https://github.com/QuestPD
 * Brochure type documents
 * Displaying Microchart charts in XAML and PDF
 * Displaying OxyPlot charts in XAML and PDF
-* (more to come)
+* Displaying XAML visuals in PDF
 
 *Note: this sample app generates its documents in the C:\temp folder. Make sure this folder exists, or change the path in the source code.*
 
