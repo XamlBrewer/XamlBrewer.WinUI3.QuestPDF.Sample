@@ -14,7 +14,7 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample
 
         public INavigation Navigation => shell;
 
-        protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
+        protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
             shell = new Shell();
             shell.Activate();
