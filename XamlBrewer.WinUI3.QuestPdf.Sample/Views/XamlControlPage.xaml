@@ -82,7 +82,6 @@
                 </StackPanel>
             </ScrollViewer>
 
-
             <controls:OrbitView x:Name="OrbitView"
                                 Background="Transparent"
                                 OrbitsEnabled="True"

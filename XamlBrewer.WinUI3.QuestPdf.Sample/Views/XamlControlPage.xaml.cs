@@ -44,14 +44,14 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
                 { "OrbitView", await CreateBytes(OrbitView) }
             };
 
-            var document = new XamlControlDocument(images);
-
-            document.GeneratePdf(filePath);
-
             if (switchTheme)
             {
                 RequestedTheme = ElementTheme.Default;
             }
+
+            var document = new XamlControlDocument(images);
+
+            document.GeneratePdf(filePath);
 
             var process = new Process
             {
