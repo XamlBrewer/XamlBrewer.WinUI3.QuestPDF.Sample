@@ -40,14 +40,19 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
                 { "CheckBox", await CheckBox.AsPng() },
                 { "RadioButton", await RadioButton.AsPng() },
                 { "RadialGauge", await RadialGauge.AsPng() },
-                { "OrbitView", await OrbitView.AsPng() },
-                { "CalendarView", await CalendarView.AsPng() }
+                { "OrbitView", await OrbitView.AsPng() }
             };
+
+            CalendarView.Visibility = Visibility.Visible;
+            images.Add("CalendarView", await CalendarView.AsPng());
+            CalendarView.Visibility = Visibility.Collapsed;
 
             if (switchTheme)
             {
                 RequestedTheme = ElementTheme.Default;
             }
+
+            images.Add("Root", await (Application.Current as App).AppRoot.AsPng());
 
             var document = new XamlControlDocument(images);
 

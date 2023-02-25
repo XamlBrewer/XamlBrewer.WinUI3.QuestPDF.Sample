@@ -89,6 +89,13 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Services.DocumentGeneration
                 column.Item()
                     .Height(400)
                     .Image(Model["OrbitView"], ImageScaling.FitArea);
+
+                column.Item().PageBreak();
+
+                column.Item().Text("Screenshot:");
+                column.Item()
+                    .Height(400)
+                    .Image(Model["Root"], ImageScaling.FitArea);
             });
         }
     }

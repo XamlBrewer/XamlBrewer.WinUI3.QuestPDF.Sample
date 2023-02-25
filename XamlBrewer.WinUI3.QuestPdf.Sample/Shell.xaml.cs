@@ -17,6 +17,8 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample
             ApplyTheme();
         }
 
+        internal UIElement AppRoot => Root;
+
         private void ToggleButton_Click(object sender, RoutedEventArgs e)
         {
             var settings = (Application.Current as App).Settings;

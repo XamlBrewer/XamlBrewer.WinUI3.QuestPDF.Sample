@@ -12,7 +12,9 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample
             InitializeComponent();
         }
 
-        public INavigation Navigation => shell;
+        internal INavigation Navigation => shell;
+
+        internal UIElement AppRoot => shell.AppRoot;
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
