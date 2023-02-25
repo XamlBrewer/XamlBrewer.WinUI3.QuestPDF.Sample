@@ -14,6 +14,9 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
         public XamlControlPage()
         {
             InitializeComponent();
+
+            CalendarView.MinDate = new DateTime(2023, 12, 01);
+            CalendarView.SelectedDates.Add(new DateTime(2023, 12, 25));
         }
 
         private async void XamlControlButton_Click(object sender, RoutedEventArgs e)
@@ -37,7 +40,8 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Views
                 { "CheckBox", await CheckBox.AsPng() },
                 { "RadioButton", await RadioButton.AsPng() },
                 { "RadialGauge", await RadialGauge.AsPng() },
-                { "OrbitView", await OrbitView.AsPng() }
+                { "OrbitView", await OrbitView.AsPng() },
+                { "CalendarView", await CalendarView.AsPng() }
             };
 
             if (switchTheme)

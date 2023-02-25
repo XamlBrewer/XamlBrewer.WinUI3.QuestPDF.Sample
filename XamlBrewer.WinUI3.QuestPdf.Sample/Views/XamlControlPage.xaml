@@ -82,6 +82,8 @@
                 </StackPanel>
             </ScrollViewer>
 
+            <CalendarView x:Name="CalendarView" Margin="-1000, 0, 0, 0" />
+
             <controls:OrbitView x:Name="OrbitView"
                                 Background="Transparent"
                                 OrbitsEnabled="True"

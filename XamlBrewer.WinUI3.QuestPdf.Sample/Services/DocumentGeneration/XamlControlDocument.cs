@@ -80,9 +80,14 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample.Services.DocumentGeneration
 
                 column.Item().PageBreak();
 
+                column.Item().Text("CalendarView:");
+                column.Item()
+                    .Height(200)
+                    .Image(Model["CalendarView"], ImageScaling.FitArea);
+
                 column.Item().Text("OrbitView:");
                 column.Item()
-                    .Height(600)
+                    .Height(400)
                     .Image(Model["OrbitView"], ImageScaling.FitArea);
             });
         }
