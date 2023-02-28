@@ -15,7 +15,7 @@ namespace XamlBrewer.WinUI3.Services
         {
             // Get XAML Visual in BGRA8 format
             var rtb = new RenderTargetBitmap();
-            await rtb.RenderAsync(control, (int)control.RenderSize.Width, (int)control.RenderSize.Height);
+            await rtb.RenderAsync(control, (int)control.ActualSize.X, (int)control.ActualSize.Y);
 
             // Encode as PNG
             var pixelBuffer = (await rtb.GetPixelsAsync()).ToArray();
