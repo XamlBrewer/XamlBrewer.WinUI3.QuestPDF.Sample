@@ -1,4 +1,6 @@
 ﻿using Microsoft.UI.Xaml;
+using q = QuestPDF;
+using QuestPDF.Infrastructure;
 using XamlBrewer.WinUI3.Services;
 
 namespace XamlBrewer.WinUI3.QuestPDF.Sample
@@ -18,6 +20,8 @@ namespace XamlBrewer.WinUI3.QuestPDF.Sample
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
+            q.Settings.License = LicenseType.Community;
+
             shell = new Shell();
             shell.Activate();
         }
